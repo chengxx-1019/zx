@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>云顶第二周</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        li {
+            list-style: none;
+        }
+        a {
+            text-decoration: none;
+        }
+        .zuiwaimian {
+            margin: 150px auto;
+            width: 600px;
+            height: 327px;
+            border: 3px solid #c0daee;
+            border-radius: 10px;
+            box-shadow: 0 0 10px 2px #c0daee;
+        }
+        .head {
+            margin:20px auto;
+            display: flex;
+            justify-content: space-between;
+
+            width: 528px;
+            height: 26px;
+            /* background-color: gainsboro; */
+        }
+        .welcome {
+            height: 26px;
+            display: flex;
+            /* background-color: aqua; */
+        }
+        .logo {
+            /* background-color: pink; */
+            /* display: flex; */
+            width: 26px;
+            height: 26px;
+            margin-right: 12px;
+        }
+        .zuiwaimian .head .welcome .welcometext p {
+            /* background-color: blue; */
+            line-height: 26px;
+            font-size: 16px;
+            color: #000000;
+        }
+        .welcometext {
+            height: 26px;
+            /* display: flex; */
+            /* background-color: brown; */
+        }
+        .photo {
+            height: 26px;
+            width: 26px;
+            display: flex;
+            /* background-color: pink; */
+        }
+        .nav {
+            margin: auto;
+            
+            height: 30px;
+            width: 506px;
+            background-color: #f7fdff;
+            border-radius: 10px;
+        }
+        .nav ul {
+            display: flex;
+            justify-content: space-evenly;
+        }
+        .nav ul li {
+            height: 30px;
+        }
+        .nav ul li a {
+            display: block;
+            height: 30px;
+            padding: 0 10px; 
+            /* background-color: burlywood; */
+            /* 撑开盒子 */
+            font-size: 10px;
+            color: #363737;
+            line-height: 30px;
+        }
+        .nav ul li a:hover {
+            color: #43d9e4;
+        }
+        .title {
+            margin: 45px auto 5px;
+            display: flex;
+            justify-content: space-between;
+            /* background-color: cadetblue; */
+            width: 550px;
+            height: 16px;
+        }
+        .emailboxtext p {
+            font-size: 16px;
+            line-height: 16px;
+            color: #000000;
+        }
+        .page {
+            display: flex;
+            justify-content: space-between;
+            width: 40px;
+            height: 16px;
+            /* background-color: pink; */
+        }
+        .textbook {
+            display: flex;
+            align-items: center;
+            /* 成功用flex让图片垂直居中 */
+            /* background-color: cyan; */
+            height: 16px;
+        }
+        .film {
+            display: flex;
+            align-items: center;
+            /* 成功用flex让图片垂直居中 */
+            /* background-color: bisque; */
+            height: 16px;
+        }
+        .page a:hover {
+            background-color: aquamarine;
+        }
+        .mailbody {
+            margin: 0 auto;
+            display: flex;
+            width: 528px;
+            height: 142px;
+            /* background-color: gainsboro; */
+        }
+        .leftnav {
+            width: 53px;
+            height: 50px;
+            /* background-color: chocolate; */
+        }
+        .leftnav ul {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            height: 50px;
+            /* 要给ul加宽高 */
+        }
+        .leftnav li {
+            background-color: #bef6ff;
+            border-radius: 3px;
+            width: 42px;
+            height: 22px;
+        }
+        .leftnav img {
+            margin: 0 5px;
+            /* 感觉这里实现的不太对。。。 */
+        }
+        .middlepart {
+            width: 448px;
+            height: 142px;
+            /* background-color:aquamarine; */
+        }
+        .middleli {
+            display: flex;
+            border-radius: 10px;
+            overflow:hidden;
+            /* 用来解决塌陷 */
+            width: 448px;
+            height: 40px;
+            background:linear-gradient(to right,#d5f3f8,#ffffff);
+            box-shadow: 0 2px 10px 2px #d2d3d3;
+        }
+        /* 写细类选择器名称 权重高 */
+        .middlepart ul li .pic {
+            margin: 7px 13px;
+            width: 25px;
+            height: 25px;
+            /* background-color: pink; */
+        }
+        .middlelitext {
+            display: flex;
+            width: 76px;
+            height: 40px;
+            /* background-color: khaki; */
+        }
+        .middlelitext p {
+            font-size: 8px;
+            color: #acb1b2;
+            line-height: 40px;
+            text-align: center;
+            /* 文字为何不能实现水平居中。。。 */
+        }
+        .middlelitext .t1 {
+            margin-right: 30px;
+        }
+        .text1 {
+            margin-right: 120px;
+        }
+        .text2 {
+            margin-right: 50px;
+        }
+        .middlepart ul {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            height: 142px;
+            /* 要给ul加宽高 */
+        }
+        .gotowrite {
+            display: flex;
+            align-items: flex-end;
+            width: 35px;
+            height: 142px;
+            /* background-color: bisque; */
+        }
+        .gotowrite p {
+            font-size: 6px;
+            color: #0f3537;
+            width: 35px;
+            height: 14px;
+            background-color: #39c8d2;
+            text-align: center;
+            line-height: 14px;
+            font-weight: 700;
+            border-radius: 6px;
+        }
+        .gotowrite p a {
+            display: block;
+            width: 35px;
+            height: 14px;
+            /* 因为文字在超链接里，但是超链接是行内元素，没有宽高，没法实现文字水平居中 */
+            /* 所以先将a转换为块级元素，再设置宽高，再实现文字水平居中 */
+        }
+        .blueborder {
+            margin-top: 2px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 最外面的边框大盒子 -->
+    <div class="zuiwaimian">
+        <!-- 第一行开始 -->
+        <div class="head">
+            <!-- 左右各一个盒子 -->
+             <div class="welcome">
+                <div class="logo">
+                    <img src="./第二周作业图片/logo.png" alt="">
+                </div>
+                <div class="welcometext">
+                    <p>欢迎回来</p>
+                </div>
+             </div>
+             <!-- 右边的盒子 -->
+             <div class="photo">
+                <img src="./第二周作业图片/head photo.png" alt="">
+             </div>
+        </div>
+        <!-- 第一行结束 -->
+        <!-- 导航栏开始 -->
+        <div class="nav">
+            <ul>
+                <li><a href="#">今日</a></li>
+                <li><a href="#">讯息</a></li>
+                <li><a href="#">服务</a></li>
+                <li><a href="#">校园</a></li>
+                <li><a href="#">我的</a></li>
+            </ul>
+        </div>
+        <!-- 导航栏结束 -->
+        <!-- 邮箱动态标题开始 -->
+        <div class="title">
+            <!-- 左右两个盒子 -->
+            <div class="emailboxtext">
+                <!-- 左边的盒子 -->
+                <p>邮箱动态-收件箱</p>
+            </div>
+            <div class="page">
+                <!-- 右边的盒子 -->
+                <div class="textbook"><a href="#"><img src="./第二周作业图片/contact-book.png" alt=""></a></div>
+                <div class="film"><a href="#"><img src="./第二周作业图片/film.png" alt=""></a></div>
+            </div>
+        </div>
+        <!-- 邮箱动态标题结束 -->
+        <!-- mailbody开始 -->
+        <div class="mailbody">
+            <!-- leftnav开始 -->
+            <div class="leftnav">
+                <ul>
+                    <li><a href="#"><img src="./第二周作业图片/radio.png" alt=""><img src="./第二周作业图片/leftnav-方块.png" alt=""></a></li>
+                    <!-- 如何实现点li的任何一个位置，都能实现超链接 -->
+                    <li><a href="#"><img src="./第二周作业图片/radio.png" alt=""><img src="./第二周作业图片/leftnav-方块.png" alt=""></a></li>
+                    <!-- 不会设置动态的小三角 -->
+                </ul>
+            </div>
+            <!-- leftnav结束 -->
+            <!-- middlepart开始 -->
+            <div class="middlepart">
+                <ul>
+                    <li>
+                        <div class="middleli">
+                            <div class="pic">
+                                <img src="./第二周作业图片/dog1.png" alt="">
+                            </div>
+                            <div class="middlelitext text1">
+                                <a href="#"><p>邮件缩略信息。。。</p></a>
+                            </div>
+                            <div class="middlelitext text2">
+                                <p>2024.12.5</p>
+                            </div>
+                            <div class="middlelitext">
+                                <a href="#"><p class="t1">删除</p></a>
+                                <a href="#"><p>回复</p></a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="middleli">
+                            <div class="pic">
+                                <img src="./第二周作业图片/dog2.png" alt="">
+                            </div>
+                            <div class="middlelitext text1">
+                                <a href="#"><p>邮件缩略信息。。。</p></a>
+                            </div>
+                            <div class="middlelitext text2">
+                                <p>2024.12.5</p>
+                            </div>
+                            <div class="middlelitext">
+                                <a href="#"><p class="t1">删除</p></a>
+                                <a href="#"><p>回复</p></a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="middleli">
+                            <div class="pic">
+                                <img src="./第二周作业图片/dog3.png" alt="">
+                            </div>
+                            <div class="middlelitext text1">
+                                <a href="#"><p>邮件缩略信息。。。</p></a>
+                            </div>
+                            <div class="middlelitext text2">
+                                <p>2024.12.5</p>
+                            </div>
+                            <div class="middlelitext">
+                                <a href="#"><p class="t1">删除</p></a>
+                                <a href="#"><p>回复</p></a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <!-- middlepart结束 -->
+            <!-- gotowrite开始 -->
+            <div class="gotowrite">
+                <p class="gotowrite"><a href="#">去写信</a></p>
+            </div>
+        </div>
+        <!-- mailbody结束 -->
+        <!-- 蓝色边框开始 -->
+        <div class="blueborder">
+            <img src="./第二周作业图片/Vector.png" alt="">
+        </div>
+    </div>
+</body>
+</html>
