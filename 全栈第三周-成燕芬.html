@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>云顶第三周作业</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        li {
+            list-style: none;
+        }
+        a {
+            text-decoration: none;
+        }
+        .banxin {
+            margin: auto;
+            width: 1920px;
+            /* background-color: antiquewhite; */
+        }
+        .wugui {
+            width: 1920px;
+            height: 929px;
+            background-image: url(./image/乌龟.png);
+        }
+        .white-top {
+            width: 1920px;
+            height: 49px;
+            background-color: white;
+            /* padding: 16px 24px; */
+            box-sizing: border-box;
+        }
+        .sangang-out {
+            width: 25px;
+            height: 16px;
+        }
+        .sangang {
+            float: left;
+            background-image: url(./image/三杠.png);
+            margin-top: 16px;
+            margin-left: 24px;
+            width: 25px;
+            height: 16px;
+        }
+        .sangang:hover {
+            transform: scale(0.9);
+        }
+        .fangdajing-out {
+            float: right;
+            width: 16px;
+            height: 16px;
+            margin-top: 4px;
+            margin-right: 24px;
+        }
+        .fangdajing {
+            background-image: url(./image/放大镜.png);
+            width: 16px;
+            height: 16px;
+        }
+        .fangdajing:hover {
+            transform: scale(0.5);
+        }
+        .camera {
+            margin: 0 auto;
+            background-image: url(./image/camera.png);
+            left: 50%;
+            transition: all 0.5s;
+            width: 200px;
+            height: 200px;
+        }
+        .camera:hover {
+            transform: scale(0.9);
+        }
+        h1 {
+            /* background-color: pink; */
+            color: #2a3f17;
+            font-weight: 400;
+            font-size: 72px;
+            font-style: Cambria;
+            text-align: center;
+            margin-top: 90px;
+            /* width: 650px;
+            height: 72px; */
+        }
+        .cover {
+            color: #2a3f17;
+            font-weight: 400;
+            font-size: 30px;
+            font-family: 微软雅黑;
+            width: 1100px;
+            height: 90px;
+            /* background-color: pink; */
+            margin: 37px auto;
+        }
+        .greenbutton {
+            width: 262px;
+            height: 72px;
+            background-color: #2a3f17;
+            color: white;
+            font-size: 30px;
+            font-family: 微软雅黑;
+            text-align: center;
+            line-height: 72px;
+            margin-left: 413px;
+            margin-top: 101px;
+            transition: all 0.8s;
+        }
+        .greenbutton:hover {
+            transform: translateY(-45px);
+            background-color: white;
+            color: #2a3f17;
+        }
+        .button-out {
+            width: 262px;
+            height: 72px;
+        }
+        .sanzhangtu {
+            position: absolute;
+            top: 776px;
+            left: 1148px;
+            width: 1110px;
+            height: 500px;
+            /* background-color: pink; */
+        }
+        .sanzhangtu ul {
+            display: flex;
+            justify-content: space-between;
+        }
+        .sanzhangtu ul li {
+            transition: all 0.8s;
+        }
+        .sanzhangtu ul li:hover{
+            transform: translateY(-45px);
+        }
+        .luu {
+            width: 1920px;
+            height: 760px;
+            background-image: url(./image/鹿.png);
+            margin-top: 598px;
+        }
+        .luu-top {
+            width: 946px;
+            height: 541px;
+            background-color: #e0dfdf;
+            position: absolute;
+            top: 1402px;
+            left: 1240px;
+            transition: all 0.8s;
+        }
+        .luu-top:hover {
+            transform: translateY(-45px);
+        }
+        .lu-text p {
+            height: 231px;
+            width: 794px;
+            /* background-color: aqua; */
+            color: #2a3f17;
+            font-size: 20px;
+            font-family: 微软雅黑;
+            margin: 78px auto;
+        }
+        .lu-button {
+            width: 197px;
+            height: 70px;
+            background-color: #2a3f17;
+            color: white;
+            font-size: 30px;
+            font-family: 微软雅黑;
+            text-align: center;
+            line-height: 70px;
+            transition: all 0.8s;
+        }
+        .lu-button:hover {
+            transform: scale(0.9);
+        }
+        .lu-buttonout {
+            margin: 22px auto 0;
+            width: 197px;
+            height: 70px;
+        }
+        .difference {
+            margin: 80px auto 40px;
+            width: 240px;
+            height: 52px;
+            color: #2a3f17;
+            font-size: 48px;
+            font-family: 微软雅黑;
+            text-align: center;
+            line-height: 52px;
+            border: 4px solid transparent;
+            /* animation: move 8s linear 0s 1 normal backwards; */
+            transition: all 1s;
+        }
+         /* difference盒子的动画 */
+         @keyframes move {
+            /* 开始状态 */
+            0% {
+                border-top-color: #2a3f17;
+            }
+            25% {
+                border-right-color: #2a3f17;
+            }
+            50% {
+                border-bottom-color: #2a3f17;
+            }
+            75% {
+                border-left-color: #2a3f17;
+            }
+            100% {
+                border: 4px solid transparent;
+            }
+        }
+        
+        .difference:hover {
+            animation: move 2s linear forwards;
+            /* color: brown; */
+        }
+        .sizhangtu {
+            margin: auto;
+            width: 1146px;
+            height: 413px;
+            /* background-color: aqua; */
+        }
+        .sizhangtu ul {
+            display: flex;
+            justify-content: space-between;
+        }
+        .sizhangtu ul li {
+            transition: all 0.8s;
+        }
+        .sizhangtu ul li:hover{
+            transform: translateY(-45px);
+        }
+        .li1 {
+            width: 264px;
+            height: 413px;
+            background-image: url(./image/Horse.png);
+        }
+        .li2 {
+            width: 264px;
+            height: 413px;
+            background-image: url(./image/Kangaroo.png);
+        }
+        .li3 {
+            width: 264px;
+            height: 413px;
+            background-image: url(./image/Lion.png);
+        }
+        .li4 {
+            width: 264px;
+            height: 413px;
+            background-image: url(./image/Hummingbird.png);
+        }
+        .sizhangtu li {
+            position: relative;
+        }
+        .sizhangtu li a {
+            
+            display: block;
+            width: 202px;
+            height: 36px;
+            position: absolute;
+            bottom: 30px;
+            left: 34px;
+            border-bottom: 3px #2a3f17 solid;
+            color: #2a3f17;
+            font-size: 21.85px;
+            font-family: 微软雅黑;
+            text-align: center;
+            line-height: 36px;
+        }
+        .knowmore {
+            margin: 119px auto 86px;
+            width: 359px;
+            height: 69px;
+            border: 2px solid #2a3f17;
+            color: #2a3f17;
+            font-size: 30px;
+            font-family: 微软雅黑;
+            text-align: center;
+            line-height: 69px;
+            transition: all 1.5s;
+        }
+        .knowmore:hover {
+            background-color: #2a3f17;
+            color: white;
+        }
+        .bengbeng {
+            width: 1404px;
+            height: 1020px;
+            /* background-color: aqua; */
+            margin: 0 auto;
+        }
+        .photo {
+            float: left;
+            width: 702px;
+            height: 1020px;
+            background-image: url(./image/松鼠.png);
+        }
+        .bengbengintroduction {
+            float: right;
+            width: 702px;
+            height: 1020px;
+            /* background-color: burlywood; */
+        }
+        .beng1 p {
+            font-size: 36px;
+            color: #2a3f17;
+            margin-top: 92px;
+            margin-left: 124px;
+            margin-bottom: 42px;
+            transition: all 0.8s;
+        }
+        .beng1 p:hover {
+            transform: translateY(-45px);
+        }
+        .beng2 p {
+            width: 522px;
+            height: 112px;
+            color: #2a3f17;
+            font-size: 24px;
+            margin-left: 124px;
+            transition: all 0.8s;
+            transform-origin:-100% 0;
+        }
+        .beng2 p:hover {
+            transform: scale(1.05);
+        }
+        .bengbengintroduction li span{
+            height: 70px;
+            width: 70px;
+            color: #2a3f17;
+            font-size: 48px;
+            display: inline-block;
+            border: 2px solid #2a3f17;
+            border-radius: 50%;
+            line-height: 70px;
+            text-align: center;
+            margin-right: 35px;
+            margin-left: 124px;
+            margin-top: 85px;
+        }
+        .bengbengintroduction li p {
+            display: inline;
+            color: #2a3f17;
+            font-size: 24px;
+        }
+        .bengbengintroduction li {
+            transition: all 0.8s;
+        }
+        .bengbengintroduction li:hover {
+            transform: translateX(60px);
+        }
+        .last {
+            width: 1920px;
+            height: 460px;
+            /* background-color: pink; */
+            margin-top: 60px;
+            border-top: 2px solid #2a3f17;
+            background-image: url(./image/We\ create\ art.\ We\ create\ life.png);
+        }
+        .llast {
+            width: 361px;
+            height: 73px;
+            transition: all 0.8s;
+        }
+        .llast:hover {
+            transform: translateY(-45px);
+        }
+        .last-botton {
+            width: 361px;
+            height: 73px;
+            background-color: #949f8b;
+            color: white;
+            font-size: 36px;
+            margin-left: 1230px;
+            margin-top: 190px;
+            line-height: 73px;
+            text-align: center;
+            transition: all 0.8s;
+        }
+        .last-botton:hover {
+            background-color: white;
+            color: #2a3f17;
+        }
+    </style>
+</head>
+<body>
+    <!-- 最外面的版心 -->
+    <div class="banxin">
+        <div class="wugui">
+            <!-- 白色顶部 -->
+            <div class="white-top">
+                <!-- 左右小盒子 -->
+                <!-- 左边的小盒子 -->
+                <div class="sangang-out">
+                    <a href="#"><div class="sangang"></div></a>
+                </div>
+                <!-- 右边的小盒子 -->
+                <div class="fangdajing-out">
+                    <a href="#"><div class="fangdajing"></div></a>
+                </div>
+                <!-- 绿色相机 -->
+                <div class="camera"></div>
+                <!-- titletext -->
+                <h1>Animal Photography</h1>
+                <p class="cover">A silhouette of them, a simple little acttion, here are the photographer’s 
+                    eyes the best of them, their laughter, their love, their every vivid, are recored 
+                    by us.</p>
+                <!-- button -->
+                <div class="button-out">
+                    <a href="#"><div class="greenbutton">EXPIORE</div></a>
+                </div>
+            </div>
+        </div>
+        <!-- 三张图 -->
+        <div class="sanzhangtu">
+            <ul>
+                <li><img src="./image/Fly.png" alt=""></li>
+                <li><img src="./image/Love.png" alt=""></li>
+                <li><img src="./image/Stand.png" alt=""></li>
+            </ul>
+        </div>
+        <!-- 鹿 -->
+        <div class="luu">
+            <!-- 灰色版面 -->
+            <div class="luu-top">
+                <div class="lu-text"><p>“Family Farms is the best place，where I can buy fruit,vegetable,meat,honey,milk,
+                    eggs and so on for my retaurant directly fromupplier. Super convinient.Thank you”
+                    xdccnfc cfvfesc cfnccnjdcn cfjdcdsr dcwwzwqg ejs dddc ddf fnfjv eij fvnv jnxzexh cn
+                    cdcmdsc ddnc, cddmdcds dncdn cdcn wqeoeas, dcndassasas,cdcndcnc cciqoskxm 
+                    cbdcpqslwq nfnere nfncsfjjc dndcww frhfjnc qpdjweiw cnncqe, cqjsdc ccn dcjndc ,
+                    ncf cdncjd dcdjcndq csjncq dcdncf dcdjdnc cdjsq, qkodkqe wqcnpsdc cdnqq qcw,
+                    cqnonxj dcdcnd dcnjsdvb wcnwq cowwncjq jjcnjncqnw wcq c wd cwch, cnjncnc ece
+                    cdcnncdwnc	nenwc dcnnc cjcj , c cjrnc wecwc .	</p></div>
+                <div class="lu-buttonout">
+                    <a href="#"><div class="lu-button">SIGN UP</div></a>
+                </div>
+            </div>
+        </div>
+        <!-- 企鹅 -->
+        <div class="difference">Difference</div>
+        <div class="sizhangtu">
+            <ul>
+                <li><div class="li1">
+                    <a href="#">A difference story</a>
+                </div></li>
+                <li><div class="li2">
+                    <a href="#">A difference story</a>
+                </div></li>
+                <li><div class="li3">
+                    <a href="#">A difference story</a>
+                </div></li>
+                <li><div class="li4">
+                    <a href="#">A difference story</a>
+                </div></li>
+            </ul>
+        </div>
+        <!-- Know More -->
+        <div class="knowmore">Know  more</div>
+        <!-- 蹦蹦简介 -->
+        <div class="bengbeng">
+            <!-- 蹦蹦照片 -->
+            <div class="photo"></div>
+            <!-- 蹦蹦文字介绍 -->
+            <div class="bengbengintroduction">
+                <div class="beng1"><p>The Photo</p></div>
+                <div class="beng2"><p>“Family Farms is the best placewhere I 
+can buy fruit,vegetable,meat,honey,milk,
+eggs and so on for my retaurant directly from
+supplier. Super convinient.Thank you”</p></div>
+                <ul>
+                    <li><span>1</span><p>Looking for it</p></li>
+                    <li><span>2</span><p>Cultivate feelings</p></li>
+                    <li><span>3</span><p>Shooting</p></li>
+                    <li><span>4</span><p>Harvest achievement
+                    </p></li>
+                </ul>
+            </div>
+        </div>
+        <!-- 最后一个 -->
+        <div class="last">
+            <div class="llast">
+                <a href="#"><div class="last-botton">Big World</div></a>
+            </div>
+        </div>
+        
+    </div>
+</body>
+</html>
