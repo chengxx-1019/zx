@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>云顶作业1</title>
+  <style>
+    .box {
+      position: relative;
+      margin: 0 auto;
+      width: 1100px;
+      height: 320px;
+      background-image: url("https://chengyanfen.oss-cn-beijing.aliyuncs.com/%E7%8C%AB.png");
+    }
+
+    .son {
+      position: absolute;
+      left: 50px;
+      top: 55px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <div class="son">
+      <label for="">请输入一个字符串:</label> <br>
+      <input type="text" id="str">
+      <br>
+      <label for="">请输入一个子串:</label> <br>
+      <input type="text" id="subStr">
+      <br>
+      <button onclick="counts()">提交</button>
+      <br>
+      <label id="result">子串出现的次数为:</label>
+    </div>
+  </div>
+  <script>
+    function counts() {
+      const str = document.querySelector('#str').value
+      const subStr = document.querySelector('#subStr').value
+      if (subStr === "" || str === "") {
+        alert('子串或字符串不得为空哦~')
+        return
+      }
+      let cnt = 0
+      let i = 0
+      let j = 0
+      let repetStrIndex = 0
+      for (i = 0; i < str.length; i++) {
+
+        if (str[i] === subStr[j]) {
+          console.log(i)
+          if (j === 0) { repetStrIndex = i }
+          console.log(`repetStrIndex = ${repetStrIndex}`)
+          j++;
+          console.log(`j = ${j}`)
+          if (j === subStr.length && (i - repetStrIndex === subStr.length - 1 || i - repetStrIndex === 0)) {
+            cnt++;
+            j = 0;
+          }
+        }
+      }
+      document.querySelector('#result').innerHTML = "子串出现的次数为: " + cnt
+    }
+  </script>
+</body>
+
+</html>
