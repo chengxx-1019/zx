@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>云顶作业6</title>
+</head>
+
+<body>
+  <div class="time">当前时间为：</div>
+  <div class="container">
+    <!-- 输入省份名字 -->
+    <div>
+      <label class="form-label">账号</label>
+      <input type="text" class="username" placeholder="请输入账号名">
+    </div>
+    <br>
+    <div class="mb-3 col">
+      <label class="form-label">密码</label>
+      <input type="text" class="password" placeholder="请输入密码">
+    </div>
+    <br>
+    <button type="button" class="btn1">注册</button>
+    <button type="button" class="btn2">显示用户列表</button>
+    <br><br>
+    <p>用户列表：</p>
+    <ul class="list">
+      <!-- 示例地区 -->
+      <li class="list-item">（示例）yunding</li>
+    </ul>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script>
+    // 获取时间模块
+    axios({
+      url: 'https://f.m.suning.com/api/ct.do',
+    }).then(timing => {
+      document.querySelector('.time').innerHTML = '当前时间为：' + timing.data.data
+      console.log(timing)
+    })
+
+    // 注册模块
+    document.querySelector('.btn1').addEventListener('click', () => {
+      let username = document.querySelector('.username').value
+      let password = document.querySelector('.password').value
+      axios({
+        url: 'https://f.m.suning.com/api/ct.do',
+        method: 'post',
+        data: {
+          username: username,
+          password: password
+        }
+      }).then(result => {
+        console.log(result)
+      }).catch(error => {
+        // 处理错误信息
+        console.log(error)
+        console.log(error.response.data.message)
+        alert(error.response.data.message)
+      })
+    })
+
+    // 显示列表模块
+    document.querySelector('.btn2').addEventListener('click', () => {
+      axios({
+        url: 'https://f.m.suning.com/api/ct.do',
+      }).then(res => {
+        let list = result.data.list
+        let theLi = list.map(userName => `<li class="list-item">${userName}</li>`).join('')
+        console.log(theLi)
+
+        document.querySelector('.list').innerHTML = theLi
+      })
+    })
+  </script>
+
+</body>
+
+</html>
