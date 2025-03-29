@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>单词列表</title>
+  <style>
+    [v-cloak] {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div v-cloak id="app">
+    <input type="text" v-model="inputWord" @keyup.enter="addWords">
+    <h2 style="color: red;" v-show="wordList.length > 5">鳖加啦!单词数量太多啦!</h2>
+    <h2>你要输入的单词是：{{inputWord}}</h2>
+    <button @click="addWords">添加</button>
+    <button @click="delWords">删除</button>
+    <h2 v-if="wordList.length <= 5">单词列表</h2>
+    <h2 style="color: red;" v-if="wordList.length > 5">单词列表</h2>
+    <ul>
+      <li v-for="item in wordList" v-if="wordList.length <= 5">{{item}}</li>
+      <li v-for="item in wordList" style="color: red;" v-if="wordList.length > 5">{{item}}</li>
+    </ul>
+  </div>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script>
+    // 1.创建app
+    const app = Vue.createApp({
+      // data: option api
+      data() {
+        return {          // 返回一个JS对象，然后对象里面可以定义数据
+          inputWord: "",
+          wordList: []
+        }
+      },
+
+      methods: {
+        addWords: function () {
+          this.wordList.push(this.inputWord)
+        },
+
+        delWords: function () {
+          if (this.wordList.length > 0) {
+            this.wordList.splice(this.wordList.length - 1, 1);
+          }
+        }
+      }
+    })
+
+    // 2.挂载app
+    app.mount("#app")
+  </script>
+
+</body>
+
+</html>
